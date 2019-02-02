@@ -110,15 +110,15 @@ class AgreeContainer extends React.Component {
     }
 
     _onTouchMoveOrStart(e) {
-        this.setState({showImage: true})
+        this.setState({ showImage: true })
     }
 
     _onMouseMove(e) {
         this.setState({ x: e.screenX, y: e.screenY });
-        if (e.screenX > 50 && e.screenX < 1190 && e.screenY > 120 && e.screenY < 570) {
+        if (e.screenX > 100 && e.screenX < 1100 && e.screenY > 120 && e.screenY < 570) {
             this.setState({ showImage: true })
         }
-        if ((e.screenX < 50 || e.screenX > 1190) || (e.screenY < 120 || e.screenY > 570)) {
+        if ((e.screenX < 100 || e.screenX > 1100) || (e.screenY < 120 || e.screenY > 570)) {
             this.setState({ showImage: false })
         }
     }
@@ -222,33 +222,34 @@ class AgreeContainer extends React.Component {
         const { x, y } = this.state;
         return (
             <div>
-            <BrowserView>
-                <div onMouseMove={this._onMouseMove.bind(this)}>
-                    {/* <br></br>
+                <BrowserView>
+                    <div onMouseMove={this._onMouseMove.bind(this)}>
+                        <br></br>
             <h1>Mouse coordinates: {x} {y}</h1>
-            <br></br> */}
-                    <img width={1250} height={550} style={{ position: "absolute", zIndex: -2, }} src="http://insighttelepsychiatry.com/wp-content/uploads/2018/04/Slider-blank-white-background-300x214.png" />
-                    <img width={1200} height={500} style={{ position: "absolute", zIndex: -1, paddingTop: 50, paddingLeft: 50 }} src={backimage} />
-                    <div>
-                        {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+            <br></br>
+                        <div style={{paddingLeft: 50}}>
+                            <img width={1120} height={550} style={{ position: "absolute", zIndex: -2, }} src="http://insighttelepsychiatry.com/wp-content/uploads/2018/04/Slider-blank-white-background-300x214.png" />
+                            <img width={1050} height={500}  style={{ position: "absolute", zIndex: -1, paddingTop: 50, paddingLeft: 50 }}  src={backimage} />
+                        </div>
+                        <div>
+                            {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+                        </div>
                     </div>
-                </div>
-            </BrowserView>
-            <MobileView>
-            <h1> Mobile: </h1>
-                <div onTouchMove={this._onTouchMoveOrStart.bind(this)}
-                    onTouchStart={this._onTouchMoveOrStart.bind(this)}
-                    onTouchEnd={()=> this.setState({showImage: false})}
-                >
-                
-                    <img width={500} height={1200} style={{ position: "absolute", zIndex: -1}} src={damn} />
-                    <div>
-                        {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+                </BrowserView>
+                <MobileView>
+                    <div onTouchMove={this._onTouchMoveOrStart.bind(this)}
+                        onTouchStart={this._onTouchMoveOrStart.bind(this)}
+                        onTouchEnd={() => this.setState({ showImage: false })}
+                    >
+
+                        <img width={500} height={1000} style={{ position: "absolute", zIndex: -1 }} src={damn} />
+                        <div>
+                            {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+                        </div>
                     </div>
-                </div>
-            </MobileView>
+                </MobileView>
             </div>
-    );
+        );
     }
 }
 export default AgreeContainer;
