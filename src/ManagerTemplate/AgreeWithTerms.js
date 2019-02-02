@@ -217,7 +217,7 @@ class AgreeContainer extends React.Component {
         const { x, y } = this.state;
         return (
             <div>
-            <BrowserView>
+            {/* <BrowserView> */}
                 <div onMouseMove={this._onMouseMove.bind(this)}>
                     {/* <br></br>
             <h1>Mouse coordinates: {x} {y}</h1>
@@ -228,10 +228,10 @@ class AgreeContainer extends React.Component {
                         {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
                     </div>
                 </div>
-            </BrowserView>
+            {/* </BrowserView>
             <MobileView>
                 <h1> This is rendered only on mobile </h1>
-            </MobileView>
+            </MobileView> */}
             </div>
     );
     }
