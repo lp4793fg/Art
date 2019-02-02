@@ -3,6 +3,7 @@ import moment from 'moment';
 import axios from 'axios';
 import '../App.css';
 import backimage from '../backimage.jpg';
+import damn from '../damn.jpg'
 import a from '../Random/a.jpg';
 import b from '../Random/b.jpg';
 import c from '../Random/c.jpg';
@@ -108,13 +109,17 @@ class AgreeContainer extends React.Component {
         this.getRandomPic = this.getRandomPic.bind(this);
     }
 
+    _onTouchMoveOrStart(e) {
+        this.setState({showImage: true})
+    }
+
     _onMouseMove(e) {
         this.setState({ x: e.screenX, y: e.screenY });
         if (e.screenX > 50 && e.screenX < 1190 && e.screenY > 120 && e.screenY < 570) {
             this.setState({ showImage: true })
         }
         if ((e.screenX < 50 || e.screenX > 1190) || (e.screenY < 120 || e.screenY > 570)) {
-            this.setState({ showImage: false, currentUrl: this.getRandomPic() })
+            this.setState({ showImage: false })
         }
     }
     getRandomPic() {
@@ -217,7 +222,7 @@ class AgreeContainer extends React.Component {
         const { x, y } = this.state;
         return (
             <div>
-            {/* <BrowserView> */}
+            <BrowserView>
                 <div onMouseMove={this._onMouseMove.bind(this)}>
                     {/* <br></br>
             <h1>Mouse coordinates: {x} {y}</h1>
@@ -228,25 +233,22 @@ class AgreeContainer extends React.Component {
                         {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
                     </div>
                 </div>
-            {/* </BrowserView>
+            </BrowserView>
             <MobileView>
-                <h1> This is rendered only on mobile </h1>
-            </MobileView> */}
+            <h1> Mobile: </h1>
+                <div onTouchMove={this._onTouchMoveOrStart.bind(this)}
+                    onTouchStart={this._onTouchMoveOrStart.bind(this)}
+                    onTouchEnd={()=> this.setState({showImage: false})}
+                >
+                
+                    <img width={500} height={1200} style={{ position: "absolute", zIndex: -1}} src={damn} />
+                    <div>
+                        {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+                    </div>
+                </div>
+            </MobileView>
             </div>
     );
     }
 }
 export default AgreeContainer;
-
-
-
-{/* <div>
-{this.state.showImage && <img width= {50} height={50} 
-style={{ position: "absolute",
-top:this.state.screenY || 0,
-bottom: this.state.screenY + 10 || 0,
-right: this.state.screenX + 10 || 0,
-left: this.state.screenX || 0,
-zIndex: 2}} 
-src = "https://www.ptnet.com/wp-content/uploads/2016/08/parallel-logo.png" />}
-</div> */}
