@@ -224,9 +224,9 @@ class AgreeContainer extends React.Component {
             <div>
                 <BrowserView>
                     <div onMouseMove={this._onMouseMove.bind(this)}>
-                        <br></br>
+                        {/* <br></br>
             <h1>Mouse coordinates: {x} {y}</h1>
-            <br></br>
+            <br></br> */}
                         <div style={{paddingLeft: 50}}>
                             <img width={1120} height={550} style={{ position: "absolute", zIndex: -2, }} src="http://insighttelepsychiatry.com/wp-content/uploads/2018/04/Slider-blank-white-background-300x214.png" />
                             <img width={1050} height={500}  style={{ position: "absolute", zIndex: -1, paddingTop: 50, paddingLeft: 50 }}  src={backimage} />
