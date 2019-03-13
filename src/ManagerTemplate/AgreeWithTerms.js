@@ -242,9 +242,9 @@ class AgreeContainer extends React.Component {
                         onTouchEnd={() => this.setState({ showImage: false })}
                     >
 
-                        <img width={500} height={1000} style={{ position: "absolute", zIndex: -1 }} src={damn} />
+                        <img width={290} height={600} style={{ position: "absolute", zIndex: -1 }} src={damn} />
                         <div>
-                            {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: this.state.x - 50, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
+                            {this.state.showImage && <img style={{ position: "absolute", zIndex: 2, paddingLeft: 40, paddingTop: this.state.y - 120 }} src={this.getRandomPic()} />}
                         </div>
                     </div>
                 </MobileView>
