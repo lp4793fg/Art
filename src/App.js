@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import AgreeContainer from './ManagerTemplate/AgreeWithTerms'
+import ArtDisplayContainer from './ManagerTemplate/AgreeWithTerms'
 
 
 class App extends Component {
   render() {
     return (
       <div>
-        <AgreeContainer/>
+        <ArtDisplayContainer/>
       </div>
     );
   }

@@ -97,7 +97,7 @@ import {
     isMobile
 } from "react-device-detect";
 
-class AgreeContainer extends React.Component {
+class ArtDisplayContainer extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -252,4 +252,4 @@ class AgreeContainer extends React.Component {
         );
     }
 }
-export default AgreeContainer;
+export default ArtDisplayContainer;
